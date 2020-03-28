@@ -15,10 +15,9 @@ after_success:
     - docker build -t maheshdwaghmare/multi-server ./server
     - docker build -t maheshdwaghmare/multi-worker ./worker
     # Log in to the docker CLI
-    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-    # - docker login -u "$DOCKER_ID" -p "$DOCKER_PASSWORD" docker.io
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin    
     # Take those images and push them to docker hub
-    - sudo docker push maheshdwaghmare/multi-client
-    - sudo docker push maheshdwaghmare/multi-nginx
-    - sudo docker push maheshdwaghmare/multi-server
-    - sudo docker push maheshdwaghmare/multi-worker
+    - docker push maheshdwaghmare/multi-client:latest
+    - docker push maheshdwaghmare/multi-nginx:latest
+    - docker push maheshdwaghmare/multi-server:latest
+    - docker push maheshdwaghmare/multi-worker:latest
